@@ -56,6 +56,70 @@
         <small>Adoção de animais</small>
       </h1>
 
+
+        <!-- <div class='row '> -->
+          <div>
+            <div class='card h-100'>
+                  <div class='card-body'>
+                    <h4 class='card-title'>
+                        Filtro de pesquisa
+                    </h4>
+
+                    <form name="pesquisaForm" id="pesquisaForm" method="post" action="envioPesquisa.php">
+                      <select name="especie">
+                            <option value="" selected="selected">Espécie:</option>
+                            <option value="cão">Cão</option>
+                            <option value="gato">Gato</option>
+                            </select>
+                            <select name="UF">
+                              <option value="" selected="selected">Estado:</option>
+                              <option value="AC">Acre</option>
+                              <option value="AL">Alagoas</option>
+                              <option value="AP">Amapá</option>
+                              <option value="AM">Amazonas</option>
+                              <option value="BA">Bahia</option>
+                              <option value="CE">Ceará</option>
+                              <option value="DF">Distrito Federal</option>
+                              <option value="ES">Espírito Santo</option>
+                              <option value="GO">Goiás</option>
+                              <option value="MA">Maranhão</option>
+                              <option value="MT">Mato Grosso</option>
+                              <option value="MS">Mato Grosso do Sul</option>
+                              <option value="MG">Minas Gerais</option>
+                              <option value="PA">Pará</option>
+                              <option value="PB">Paraíba</option>
+                              <option value="PR">Paraná</option>
+                              <option value="PE">Pernambuco</option>
+                              <option value="PI">Piauí</option>
+                              <option value="RJ">Rio de Janeiro</option>
+                              <option value="RN">Rio Grande do Norte</option>
+                              <option value="RS">Rio Grande do Sul</option>
+                              <option value="RO">Rondônia</option>
+                              <option value="RR">Roraima</option>
+                              <option value="SC">Santa Catarina</option>
+                              <option value="SP">São Paulo</option>
+                              <option value="SE">Sergipe</option>
+                              <option value="TO">Tocantins</option>
+                            </select>
+                              <select name="cidade">
+                                <option value="" selected="selected">Cidade:</option>
+                                <option value="São Paulo">São Paulo</option>
+                                <option value="Rio de Janeiro">Rio de Janeiro</option>
+                                <option value="Salvador">Salvador</option>
+                                <option value="Curitiba">Curitiba</option>
+                              </select>
+                              <select name="porte">
+                                <option value="" selected="selected">Porte:</option>
+                                <option value="P">Pequeno</option>
+                                <option value="M">Médio</option>
+                                <option value="G">Grande</option>
+                              </select>
+                      <input type="submit" name="Enviar" id="Enviar" value="Procurar">
+                    </form>
+                  </div>
+            </div>
+          <!-- </div> -->
+          <br><br>
       <?php
         require_once('conexaoBanco.php');
 
