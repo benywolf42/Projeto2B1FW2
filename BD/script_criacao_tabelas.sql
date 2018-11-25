@@ -81,7 +81,7 @@ ENGINE = InnoDB;
 -- Table `mydb`.`fotosPet`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`fotosPet` (
-  `idfotosPet` INT NOT NULL,
+  `idfotosPet` INT NOT NULL auto_increment,
   `linkFotoPerfil` VARCHAR(60) NOT NULL,
   `linkFoto1` VARCHAR(60) NULL,
   `linkFoto2` VARCHAR(60) NULL,

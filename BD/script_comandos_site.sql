@@ -19,4 +19,6 @@ insert into fotosPet values
 
 select * from Usuario;
 
+SELECT * FROM PET;
+
 -- drop database mydb;

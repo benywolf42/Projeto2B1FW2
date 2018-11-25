@@ -21,5 +21,6 @@ insert into Pet values
 
 -- CRIANDO OS LINKS DE FOTOS
 
-insert into fotosPet values
-(null, 'linkPerfil', 1);
+insert into fotosPet (linkFotoPerfil, Pet_idPet)values
+('/Imagens/labrador.jpg', 1),
+('/Imagens/gatinho.jpg', 2);
