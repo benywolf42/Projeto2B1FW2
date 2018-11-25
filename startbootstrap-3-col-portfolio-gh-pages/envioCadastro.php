@@ -28,7 +28,7 @@
     $idCadastroUsuario = mysqli_fetch_array($idCadastroUsuario);
     
     /* INSERT INTO Endereco_Usuario ($UF, $cidade, $bairro, $logradouro, $nome_logradouro, $numero, $complemento, $idCadastroUsuario) */ 
-    $cadastroEndereco = "INSERT INTO Endereco_Usuario ('$UF', '$cidade', '$bairro', '$logradouro', '$tipoLogradouro', '$numero', '$complemento', '$idCadastroUsuario[0]')";
+    $cadastroEndereco = "INSERT INTO Endereco_Usuario VALUES (NULL, '$UF', '$cidade', '$bairro', '$tipoLogradouro', '$logradouro', '$numero', '$complemento', '$idCadastroUsuario[0]')";
     mysqli_query($conn, $cadastroEndereco);
     
     header ( 'Location: ' . $dominio . 'cadastroUsuario.php?sucesso=1')
