@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if ($_SESSION) {
+      header ( 'Location: ' . $dominio . 'panel.php');
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +15,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>3 Col Portfolio - Start Bootstrap Template</title>
+    <title>Dedo no Cão e Gataria</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -23,25 +30,23 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#">Start Bootstrap</a>
+        <a class="navbar-brand" href="index.php">Dedo no Cão e Gataria</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.php">Home</a>
+            </li>
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home
-                <span class="sr-only">(current)</span>
-              </a>
+              <a class="nav-link" href="login.php">Login<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Login</a>
+              <a class="nav-link" href="sobre.html">Sobre</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Sobre</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contato</a>
+              <a class="nav-link" href="contato.html">Contato</a>
             </li>
           </ul>
         </div>
@@ -61,10 +66,40 @@
           <div class="card h-100">
             
             <div class="card-body">
-              <!-- <h4 class="card-title">
-                <a href="#">Nome do cão</a>
-              </h4> -->
-              <p class="card-text">Descrição do Cão Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ducimus repudiandae eveniet amet aut numquam? Odio vitae cupiditate, maiores ab sit, doloribus laborum rem fugiat, accusamus eos quae reiciendis! Magni, illo?</p>
+            <p>Digite seu login e senha:</p><br>
+
+<span>
+<?php  
+  if (isset ( $_GET ['erro'] )) {
+        echo "<font face=Verdana color=red size=2>";
+        echo "<b>Login falhou! Tente novamente.</b>";
+        echo "</font>";
+  }
+  
+  ?>
+</span>
+
+<form name="loginForm" method="post" action="auth.php">
+     <table width="20%"></table>
+    
+    <tr>
+    <td>Usuário:</td>
+    <td><input type="text" size=25 name="userid"></td>
+    </tr>
+    
+    <tr>
+    <td>Senha:</td>
+    <td><input type="Password" size=25 name="pwd"></td>
+    </tr>
+    <br><br>
+    <tr>
+    <td><input type="submit" value="Login"><br><br>
+    <td><a href="cadastroUsuario.php">Não tem cadastro?</a></td><br>
+  </td>
+    </tr>
+    
+    </table>
+    </form>
             </div>
           </div>
         </div>
@@ -104,7 +139,7 @@
     <!-- Footer -->
     <footer class="py-5 bg-dark">
       <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
+        <p class="m-0 text-center text-white">Copyright &copy; IFSP 2018</p>
       </div>
       <!-- /.container -->
     </footer>

@@ -17,3 +17,6 @@ insert into fotosPet values
 (null, 'linkFotoPerfil', 'linkFoto1', 'linkFoto2', 'linkFoto3', 'linkFoto4', 'linkFoto5', 'linkFoto6', '(INT)_idPet');
 
 
+select * from Usuario;
+
+-- drop database mydb;
