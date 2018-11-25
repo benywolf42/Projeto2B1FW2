@@ -66,39 +66,41 @@
         $result_sqlFotosPet=mysqli_query($conn,$sqlFotosPet);
         $array_sqlFotosPet=mysqli_fetch_array($result_sqlFotosPet);
         
-          echo  "<div class='row '>";
+        echo  "<div class='row '>";
+        echo    "<div class='col-lg-4 col-sm-6 portfolio-item'>";
+        echo      "<div class='card h-100'>";
+        echo        "<a href='#'><img class='card-img-top' src='.".$array_sqlFotosPet[1]."' alt=''></a>";
+        echo            "<div class='card-body'>";
+        echo              "<h4 class='card-title'>";
+        echo                 "<a href='".$array_sqlPet[10]."'>".$array_sqlPet[1]."</a>";
+        echo              "</h4>";
+        echo          "<p class='card-text'>".$array_sqlPet[8]."</p>";
+        echo          "<p class='card-text'>".$array_sqlPet[3]." - ".$array_sqlPet[4]."</p>";
+        echo          "<p class='card-text'> Sexo: ".$array_sqlPet[5]." / Porte: ".$array_sqlPet[6]."</p>";
+        echo        "</div>";
+        echo      "</div>";
+        echo    "</div>";
+
+        $rowsqlPet = mysqli_fetch_assoc($result_sqlPet);
+
+        while ( $rowsqlFotosPet = mysqli_fetch_assoc($result_sqlFotosPet) ) {
           echo    "<div class='col-lg-4 col-sm-6 portfolio-item'>";
           echo      "<div class='card h-100'>";
-          echo        "<a href='#'><img class='card-img-top' src='.".$array_sqlFotosPet[1]."' alt=''></a>";
+          echo        "<a href='#'><img class='card-img-top' src='.".$rowsqlFotosPet["linkFotoPerfil"]."' alt=''></a>";
           echo            "<div class='card-body'>";
           echo              "<h4 class='card-title'>";
-          echo                 "<a href='#'>".$array_sqlPet[1]."</a>";
+          echo                 "<a href='".$rowsqlPet["linkPet"]."'>".$rowsqlPet["nome_provisorio"]."</a>";
           echo              "</h4>";
-          echo          "<p class='card-text'>".$array_sqlPet[8]."</p>";
-          echo          "<p class='card-text'>".$array_sqlPet[3]." - ".$array_sqlPet[4]."</p>";
-          echo          "<p class='card-text'>Sexo e porte</p>";
+          echo          "<p class='card-text'>".$rowsqlPet["descricao"]."</p>";
+          echo          "<p class='card-text'>".$rowsqlPet["cidade"]." - ".$rowsqlPet["estado"]."</p>";
+          echo          "<p class='card-text'> Sexo: ".$rowsqlPet["sexo"]." / Porte: ".$rowsqlPet["porte"]."</p>";
           echo        "</div>";
           echo      "</div>";
           echo    "</div>";
+        }
 
-          while ($row = $result_sqlFotosPet->fetch_assoc()) {
-            echo    "<div class='col-lg-4 col-sm-6 portfolio-item'>";
-            echo      "<div class='card h-100'>";
-            echo        "<a href='#'><img class='card-img-top' src='.".$row["linkFotoPerfil"]."' alt=''></a>";
-            echo            "<div class='card-body'>";
-            echo              "<h4 class='card-title'>";
-            echo                 "<a href='#'>Nome do cão</a>";
-            echo              "</h4>";
-            echo          "<p class='card-text'>Descrição do Cão</p>";
-            echo          "<p class='card-text'>Cidade - SP</p>";
-            echo          "<p class='card-text'>Sexo e porte</p>";
-            echo        "</div>";
-            echo      "</div>";
-            echo    "</div>";
-          }
-
-          echo   "</div>";
-          ?>
+        echo   "</div>";
+      ?>
       <!-- /.row -->
 
       <!-- Pagination -->

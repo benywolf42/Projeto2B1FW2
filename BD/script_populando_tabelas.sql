@@ -1,7 +1,7 @@
 -- CRIANDO USUARIOS
 
 insert into Usuario values 
-(null, 'Luisa Mell', 'lu.mell', '44f7865dd86569240496a90cf36bcb69', 'lu.mell@mail.com', '11', '994760123'),
+(null, 'Luisa Mell', 'lu.mell', '44f7865dd86569240496a90cf36bcb69', 'lu.mell@mail.com', '11', '994760123');
 (null, 'Bruno Pernadas', 'bruno.per', '44f7865dd86569240496a90cf36bcb69', 'bruno.per@mail.com', '17', '996152307'),
 (null, 'Daniela Indigo', 'dani.ind', '44f7865dd86569240496a90cf36bcb69', 'dani.ind@mail.com', '19', '994879632');
 
@@ -14,13 +14,17 @@ insert into Endereco_Usuario values
 
 -- CRIANDO PETS
 
-insert into Pet values
-(null, 'Rex', 'cão', 'São Paulo', 'SP', 'M', 'G', '2018-11-24', 'Rex é um cão nada amigável. Ótimo para fazer guarda à noite.', 'Vacinado e castrado.', 1),
-(null, 'Kitty', 'gato', 'São Paulo', 'SP', 'F', 'P', '2018-11-08', 'Kitty é uma gata canceriana, super amorosa, mas de personalidade forte.', 'Vacinada e castrada.', 2),
-(null, 'Felpudo', 'cão', 'São Paulo', 'SP', 'M', 'P', '2018-11-10', 'Felpudo é extremamente dócil e inteligente. Perfeito pra crianças.', 'Vacinado e castrado.', 3);
+
+insert into Pet values(null, 'Rex', 'cão', 'São Paulo', 'SP', 'M', 'G', '2018-11-24', 'Rex é um cão nada amigável. Ótimo para fazer guarda à noite.', 'Vacinado e castrado.', '/Animais/1.html', 1);
+insert into Pet values(null, 'Kitty', 'gato', 'São Paulo', 'SP', 'F', 'P', '2018-11-08', 'Kitty é uma gata canceriana, super amorosa, mas de personalidade forte.', 'Vacinada e castrada.', '/Animais/2.html', 2);
 
 -- CRIANDO OS LINKS DE FOTOS
 
-insert into fotosPet (linkFotoPerfil, Pet_idPet)values
-('/Imagens/labrador.jpg', 1),
-('/Imagens/gatinho.jpg', 2);
+insert into fotosPet (linkFotoPerfil, Pet_idPet)values('/Imagens/labrador.jpg', 1);
+insert into fotosPet (linkFotoPerfil, Pet_idPet)values('/Imagens/gatinho.jpg', 2);
+
+INSERT INTO Pet values(null, 'Rex', 'cão', 'São Paulo', 'SP', 'M', 'G', '2018-11-24', 'Rex é um cão nada amigável. Ótimo para fazer guarda à noite.', 'Vacinado e castrado.', '/Animais/1.html', 1);
+
+select * from pet;
+
+select * from fotospet;

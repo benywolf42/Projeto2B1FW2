@@ -13,9 +13,7 @@ insert into Pet values
 (null, 'nome provisorio', 'cão ou gato', 'cidade', 'UF', 'M ou F', 'P M ou G', 'data de criação', 'descricao do animal', 'outras info', '(INT)_id do usuario responsavel');
 
 -- INSERINDO FOTOS PET
-insert into fotosPet values
-(null, 'linkFotoPerfil', 'linkFoto1', 'linkFoto2', 'linkFoto3', 'linkFoto4', 'linkFoto5', 'linkFoto6', '(INT)_idPet');
-
+insert into fotosPet values (null, 'linkFotoPerfil', 'linkFoto1', 'linkFoto2', 'linkFoto3', 'linkFoto4', 'linkFoto5', 'linkFoto6', '(INT)_idPet');
 
 select * from Usuario;
 
