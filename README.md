@@ -5,6 +5,6 @@ Instituto Federal de São Paulo
 
 Membros:
 
-Gustavo Delgado
-Hangra Marília
-Jhonatan Cruz
+- Gustavo Delgado
+- Hangra Marília
+- Jhonatan Cruz
