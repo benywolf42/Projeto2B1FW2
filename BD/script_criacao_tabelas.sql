@@ -43,7 +43,6 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Pet` (
   `dataCadastro` DATE NOT NULL,
   `descricao` VARCHAR(150) NOT NULL,
   `outrasInfo` VARCHAR(100) NOT NULL,
-  `linkPet` VARCHAR(60) NOT NULL,
   `Usuario_idUsuario` INT NOT NULL,
   PRIMARY KEY (`idPet`),
   INDEX `fk_Pet_Usuario1_idx` (`Usuario_idUsuario` ASC),
