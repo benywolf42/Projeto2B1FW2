@@ -130,20 +130,20 @@
         $result_sqlFotosPet=mysqli_query($conn,$sqlFotosPet);
         $array_sqlFotosPet=mysqli_fetch_array($result_sqlFotosPet);
         
-        echo  "<div class='row '>";
-        echo    "<div class='col-lg-4 col-sm-6 portfolio-item'>";
-        echo      "<div class='card h-100'>";
-        echo        "<a href='#'><img class='card-img-top' src='.".$array_sqlFotosPet[1]."' alt=''></a>";
-        echo            "<div class='card-body'>";
-        echo              "<h4 class='card-title'>";
-        echo                 "<a href='".$array_sqlPet[10]."'>".$array_sqlPet[1]."</a>";
-        echo              "</h4>";
-        echo          "<p class='card-text'>".$array_sqlPet[8]."</p>";
-        echo          "<p class='card-text'>".$array_sqlPet[3]." - ".$array_sqlPet[4]."</p>";
-        echo          "<p class='card-text'> Sexo: ".$array_sqlPet[5]." / Porte: ".$array_sqlPet[6]."</p>";
-        echo        "</div>";
-        echo      "</div>";
-        echo    "</div>";
+        echo  "<div class='row '>\n";
+        echo  " <div class='col-lg-4 col-sm-6 portfolio-item'>\n";
+        echo  "   <div class='card h-100'>";
+        echo  "     <a href='#'><img class='card-img-top' src='.".$array_sqlFotosPet[1]."' alt=''></a>\n";
+        echo  "       <div class='card-body'>\n";
+        echo  "         <h4 class='card-title'>\n";
+        echo  "           <a href='/animal.php'>".$array_sqlPet[1]."</a>\n";
+        echo  "         </h4>";
+        echo  "           <p class='card-text'>".$array_sqlPet[8]."</p>\n";
+        echo  "           <p class='card-text'>".$array_sqlPet[3]." - ".$array_sqlPet[4]."</p>\n";
+        echo  "           <p class='card-text'> Sexo: ".$array_sqlPet[5]." / Porte: ".$array_sqlPet[6]."</p>\n";
+        echo  "   </div>\n";
+        echo  " </div>\n";
+        echo  "</div>\n";
 
         $rowsqlPet = mysqli_fetch_assoc($result_sqlPet);
 
@@ -153,7 +153,7 @@
           echo        "<a href='#'><img class='card-img-top' src='.".$rowsqlFotosPet["linkFotoPerfil"]."' alt=''></a>";
           echo            "<div class='card-body'>";
           echo              "<h4 class='card-title'>";
-          echo                 "<a href='".$rowsqlPet["linkPet"]."'>".$rowsqlPet["nome_provisorio"]."</a>";
+          echo                 "<a href='/animal.php'>".$rowsqlPet["nome_provisorio"]."</a>";
           echo              "</h4>";
           echo          "<p class='card-text'>".$rowsqlPet["descricao"]."</p>";
           echo          "<p class='card-text'>".$rowsqlPet["cidade"]." - ".$rowsqlPet["estado"]."</p>";
