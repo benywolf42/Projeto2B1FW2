@@ -122,6 +122,7 @@
           <br><br>
       <?php
         require('conexaoBanco.php');
+
         $especie             = $_POST['especie'];
         $estado              = $_POST['UF'];
         $cidade              = $_POST['cidade'];
