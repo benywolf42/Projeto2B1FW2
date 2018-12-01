@@ -136,7 +136,19 @@
         echo  "     <a href='#'><img class='card-img-top' src='.".$array_sqlFotosPet[1]."' alt=''></a>\n";
         echo  "       <div class='card-body'>\n";
         echo  "         <h4 class='card-title'>\n";
-        echo  "           <a href='/animal.php'>".$array_sqlPet[1]."</a>\n";
+        echo  "           <a href='animal.php?name=".$array_sqlPet[1].
+                            "&fotoPerfil=".$array_sqlFotosPet[1].
+                            "&descricao=".$array_sqlPet[8].
+                            "&cidade=".$array_sqlPet[3].
+                            "&UF=".$array_sqlPet[4].
+                            "&sexo=".$array_sqlPet[5].
+                            "&porte=".$array_sqlPet[6].
+                            "&outrasInfo=".$array_sqlPet[9].
+                            "&foto2=".$array_sqlFotosPet[2].
+                            "&foto3=".$array_sqlFotosPet[3].
+                            "&foto4=".$array_sqlFotosPet[4].
+                            "&foto5=".$array_sqlFotosPet[5].
+                            "'>".$array_sqlPet[1]."</a>\n";
         echo  "         </h4>";
         echo  "           <p class='card-text'>".$array_sqlPet[8]."</p>\n";
         echo  "           <p class='card-text'>".$array_sqlPet[3]." - ".$array_sqlPet[4]."</p>\n";

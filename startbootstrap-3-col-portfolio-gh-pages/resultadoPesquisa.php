@@ -58,66 +58,7 @@
 
 
         <!-- <div class='row '> -->
-          <div>
-            <div class='card h-100'>
-                  <div class='card-body'>
-                    <h4 class='card-title'>
-                        Filtro de pesquisa
-                    </h4>
-
-                    <form name="pesquisaForm" id="pesquisaForm" method="post" action="envioPesquisa.php">
-                      <select name="especie">
-                            <option value="" selected="selected">Espécie:</option>
-                            <option value="cao">Cão</option>
-                            <option value="gato">Gato</option>
-                            </select>
-                            <select name="UF">
-                              <option value="" selected="selected">Estado:</option>
-                              <option value="AC">Acre</option>
-                              <option value="AL">Alagoas</option>
-                              <option value="AP">Amapá</option>
-                              <option value="AM">Amazonas</option>
-                              <option value="BA">Bahia</option>
-                              <option value="CE">Ceará</option>
-                              <option value="DF">Distrito Federal</option>
-                              <option value="ES">Espírito Santo</option>
-                              <option value="GO">Goiás</option>
-                              <option value="MA">Maranhão</option>
-                              <option value="MT">Mato Grosso</option>
-                              <option value="MS">Mato Grosso do Sul</option>
-                              <option value="MG">Minas Gerais</option>
-                              <option value="PA">Pará</option>
-                              <option value="PB">Paraíba</option>
-                              <option value="PR">Paraná</option>
-                              <option value="PE">Pernambuco</option>
-                              <option value="PI">Piauí</option>
-                              <option value="RJ">Rio de Janeiro</option>
-                              <option value="RN">Rio Grande do Norte</option>
-                              <option value="RS">Rio Grande do Sul</option>
-                              <option value="RO">Rondônia</option>
-                              <option value="RR">Roraima</option>
-                              <option value="SC">Santa Catarina</option>
-                              <option value="SP">São Paulo</option>
-                              <option value="SE">Sergipe</option>
-                              <option value="TO">Tocantins</option>
-                            </select>
-                              <select name="cidade">
-                                <option value="" selected="selected">Cidade:</option>
-                                <option value="Sao Paulo">São Paulo</option>
-                                <option value="Rio de Janeiro">Rio de Janeiro</option>
-                                <option value="Salvador">Salvador</option>
-                                <option value="Curitiba">Curitiba</option>
-                              </select>
-                              <select name="porte">
-                                <option value="" selected="selected">Porte:</option>
-                                <option value="P">Pequeno</option>
-                                <option value="M">Médio</option>
-                                <option value="G">Grande</option>
-                              </select>
-                      <input type="submit" name="Enviar" id="Enviar" value="Procurar">
-                    </form>
-                  </div>
-            </div>
+          
           <!-- </div> -->
           <br><br>
       <?php
@@ -161,7 +102,7 @@
         echo  "     <a href='#'><img class='card-img-top' src='.".$array_sqlFotosPet[1]."' alt=''></a>\n";
         echo  "       <div class='card-body'>\n";
         echo  "         <h4 class='card-title'>\n";
-        echo  "           <a href='/animal.php'>".$array_pesquisaPet[1]."</a>\n";
+        echo  "           <a href='/animal.php?='>".$array_pesquisaPet[1]."</a>\n";
         echo  "         </h4>";
         echo  "           <p class='card-text'>".$array_pesquisaPet[8]."</p>\n";
         echo  "           <p class='card-text'>".$array_pesquisaPet[3]." - ".$array_pesquisaPet[4]."</p>\n";
@@ -170,10 +111,15 @@
         echo  " </div>\n";
         echo  "</div>\n";
 
-        while ( $rowsqlFotosPet = mysqli_fetch_assoc($result_sqlFotosPet) and $rowsqlPet = mysqli_fetch_assoc($result_pesquisaPet)) {
+        while ( $rowsqlPet = mysqli_fetch_assoc($result_pesquisaPet)) {
+          
+          $sqlFotosPet="SELECT * FROM fotosPet where Pet_idPet = ".$rowsqlPet["idPet"];
+          $result_sqlFotosPet=mysqli_query($conn,$sqlFotosPet);
+          $array_sqlFotosPet=mysqli_fetch_array($result_sqlFotosPet);
+
           echo    "<div class='col-lg-4 col-sm-6 portfolio-item'>";
           echo      "<div class='card h-100'>";
-          echo        "<a href='#'><img class='card-img-top' src='.".$rowsqlFotosPet["linkFotoPerfil"]."' alt=''></a>";
+          echo        "<a href='#'><img class='card-img-top' src='.".$array_sqlFotosPet[1]."' alt=''></a>";
           echo            "<div class='card-body'>";
           echo              "<h4 class='card-title'>";
           echo                 "<a href='/animal.php'>".$rowsqlPet["nome_provisorio"]."</a>";

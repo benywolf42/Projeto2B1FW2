@@ -20,12 +20,14 @@ insert into Pet values(null, 'Kitty', 'gato', 'Sao Paulo', 'SP', 'F', 'P', '2018
 
 insert into Pet values(null, 'Kataoquei', 'gato', 'Pirituba', 'SP', 'F', 'M', '2018-12-02', 'Kataoquei é uma bichana bem sacana. Brinca o dia inteiro e só dorme com dramin.', 'Vacinada e castrada.', 3);
 insert into Pet values(null, 'Maximiliano', 'cao', 'Osasco', 'SP', 'M', 'G', '2018-12-01', 'Maximiliano é um cão treinado para o combate. Mas se derrete todo com um carinho de baixo do pescoço', 'Vacinada e castrada.', 3);
+insert into Pet values(null, 'Doggo', 'cao', 'Sao Paulo', 'SP', 'M', 'G', '2018-11-05', 'Doggo é um cachorrinho sacana, que adora um doggy style.', 'Vacinado e castrado', 2);
 -- CRIANDO OS LINKS DE FOTOS
 
 insert into fotosPet (linkFotoPerfil, Pet_idPet)values('/Imagens/labrador.jpg', 1);
 insert into fotosPet (linkFotoPerfil, Pet_idPet)values('/Imagens/gatinho.jpg', 2);
-insert into fotosPet (linkFotoPerfil, Pet_idPet)values('/Imagens/felipeMelo.jpg', 3);
 insert into fotosPet (linkFotoPerfil, Pet_idPet)values('/Imagens/gatenhaa.png', 3);
+insert into fotosPet (linkFotoPerfil, Pet_idPet)values('/Imagens/felipeMelo.jpg', 4);
+insert into fotosPet (linkFotoPerfil, Pet_idPet)values('/Imagens/viralatinha.jpg', 5);
 
 /*INSERT INTO Pet values(null, 'Rex', 'cão', 'São Paulo', 'SP', 'M', 'G', '2018-11-24', 'Rex é um cão nada amigável. Ótimo para fazer guarda à noite.', 'Vacinado e castrado.', '/Animais/1.html', 1);
 
