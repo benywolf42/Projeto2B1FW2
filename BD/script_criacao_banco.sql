@@ -35,7 +35,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `PETADOPT`.`Pet` (
   `idPet` INT NOT NULL AUTO_INCREMENT,
   `nome_provisorio` VARCHAR(30) NOT NULL,
-  `especie` ENUM('cão', 'gato') NOT NULL,
+  `especie` ENUM('cao', 'gato') NOT NULL,
   `cidade` VARCHAR(45) NOT NULL,
   `estado` VARCHAR(2) NOT NULL,
   `sexo` ENUM('F', 'M') NOT NULL,

@@ -8,18 +8,18 @@ insert into Usuario values
 -- CRIANDO ENDEREÇOS
 
 insert into Endereco_Usuario values
-(null, 'SP', 'São Paulo', 'Jd. América', 'Rua', 'Acetinada', 1418, 'AP', 1),
-(null, 'SP', 'São Paulo', 'Centro', 'Rua', 'Carmim', 25, 'CASA', 2),
-(null, 'SP', 'São Paulo', 'Vila Nova', 'Rua', 'Primavera', 134, 'AP', 3);
+(null, 'SP', 'Sao Paulo', 'Jd. América', 'Rua', 'Acetinada', 1418, 'AP', 1),
+(null, 'SP', 'Sao Paulo', 'Centro', 'Rua', 'Carmim', 25, 'CASA', 2),
+(null, 'SP', 'Sao Paulo', 'Vila Nova', 'Rua', 'Primavera', 134, 'AP', 3);
 
 -- CRIANDO PETS
 
 
-insert into Pet values(null, 'Rex', 'cão', 'São Paulo', 'SP', 'M', 'G', '2018-11-24', 'Rex é um cão nada amigável. Ótimo para fazer guarda à noite.', 'Vacinado e castrado.', 1);
-insert into Pet values(null, 'Kitty', 'gato', 'São Paulo', 'SP', 'F', 'P', '2018-11-08', 'Kitty é uma gata canceriana, super amorosa, mas de personalidade forte.', 'Vacinada e castrada.', 2);
+insert into Pet values(null, 'Rex', 'cao', 'Sao Paulo', 'SP', 'M', 'G', '2018-11-24', 'Rex é um cão nada amigável. Ótimo para fazer guarda à noite.', 'Vacinado e castrado.', 1);
+insert into Pet values(null, 'Kitty', 'gato', 'Sao Paulo', 'SP', 'F', 'P', '2018-11-08', 'Kitty é uma gata canceriana, super amorosa, mas de personalidade forte.', 'Vacinada e castrada.', 2);
 
 insert into Pet values(null, 'Kataoquei', 'gato', 'Pirituba', 'SP', 'F', 'M', '2018-12-02', 'Kataoquei é uma bichana bem sacana. Brinca o dia inteiro e só dorme com dramin.', 'Vacinada e castrada.', 3);
-insert into Pet values(null, 'Maximiliano', 'cão', 'Osasco', 'SP', 'M', 'G', '2018-12-01', 'Maximiliano é um cão treinado para o combate. Mas se derrete todo com um carinho de baixo do pescoço', 'Vacinada e castrada.', 3);
+insert into Pet values(null, 'Maximiliano', 'cao', 'Osasco', 'SP', 'M', 'G', '2018-12-01', 'Maximiliano é um cão treinado para o combate. Mas se derrete todo com um carinho de baixo do pescoço', 'Vacinada e castrada.', 3);
 -- CRIANDO OS LINKS DE FOTOS
 
 insert into fotosPet (linkFotoPerfil, Pet_idPet)values('/Imagens/labrador.jpg', 1);

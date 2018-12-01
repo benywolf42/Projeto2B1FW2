@@ -68,7 +68,7 @@
                     <form name="pesquisaForm" id="pesquisaForm" method="post" action="envioPesquisa.php">
                       <select name="especie">
                             <option value="" selected="selected">Espécie:</option>
-                            <option value="cão">Cão</option>
+                            <option value="cao">Cão</option>
                             <option value="gato">Gato</option>
                             </select>
                             <select name="UF">
@@ -103,7 +103,7 @@
                             </select>
                               <select name="cidade">
                                 <option value="" selected="selected">Cidade:</option>
-                                <option value="São Paulo">São Paulo</option>
+                                <option value="Sao Paulo">São Paulo</option>
                                 <option value="Rio de Janeiro">Rio de Janeiro</option>
                                 <option value="Salvador">Salvador</option>
                                 <option value="Curitiba">Curitiba</option>

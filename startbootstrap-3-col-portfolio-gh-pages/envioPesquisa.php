@@ -27,7 +27,7 @@
     // } elseif ($porte != "") { $pesquisaPet = $pesquisaPet. "porte = '$porte' ";
     // }
 
-    $pesquisaPet = "SELECT * from pet";
+    $pesquisaPet = "SELECT * from pet where especie = 'cao' and estado = 'SP' and cidade = 'Sao Paulo' and porte = 'G'";
     // echo $pesquisaPet;
 
     $result_pesquisaPet = mysqli_query($conn, $pesquisaPet);
