@@ -118,7 +118,7 @@
           echo  "     <a href='#'><img class='card-img-top' src='.".$array_sqlFotosPet[1]."' alt=''></a>\n";
           echo  "       <div class='card-body'>\n";
           echo  "         <h4 class='card-title'>\n";
-          echo  "           <a href='/animal.php?='>".$array_pesquisaPet[1]."</a>\n";
+          echo  "           <a href='animal.php?id=".$array_pesquisaPet[0]."'>".$array_pesquisaPet[1]."</a>\n";
           echo  "         </h4>";
           echo  "           <p class='card-text'>".$array_pesquisaPet[8]."</p>\n";
           echo  "           <p class='card-text'>".$array_pesquisaPet[3]." - ".$array_pesquisaPet[4]."</p>\n";
@@ -138,7 +138,7 @@
             echo        "<a href='#'><img class='card-img-top' src='.".$array_sqlFotosPet[1]."' alt=''></a>";
             echo            "<div class='card-body'>";
             echo              "<h4 class='card-title'>";
-            echo                 "<a href='/animal.php'>".$rowsqlPet["nome_provisorio"]."</a>";
+            echo                 "<a href='animal.php?id=".$rowsqlPet["idPet"]."'>".$rowsqlPet["nome_provisorio"]."</a>";
             echo              "</h4>";
             echo          "<p class='card-text'>".$rowsqlPet["descricao"]."</p>";
             echo          "<p class='card-text'>".$rowsqlPet["cidade"]." - ".$rowsqlPet["estado"]."</p>";

@@ -38,10 +38,10 @@
               <a class="nav-link" href="login.php">Login</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Sobre</a>
+              <a class="nav-link" href="sobre.html">Sobre</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Contato</a>
+              <a class="nav-link" href="contato.php">Contato</a>
             </li>
           </ul>
         </div>
