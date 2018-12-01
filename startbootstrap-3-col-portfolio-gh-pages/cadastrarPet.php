@@ -101,7 +101,7 @@
                   $("#mensagem").html("Campo obrigatório");
                   $("#desc").focus(); // foco no campo
                   }  else{
-                    $("#cadastroForm").submit();
+                    $("#cadastroPetForm").submit();
                 }
               
               });
