@@ -1,5 +1,5 @@
 <?php
-    error_reporting(E_ALL);
+    // error_reporting(E_ALL);
     require('conexaoBanco.php');
 
     // $especie             = $_POST['especie'];
@@ -31,11 +31,9 @@
     // echo $pesquisaPet;
 
     $result_pesquisaPet = mysqli_query($conn, $pesquisaPet);
-    $array_pesquisaPet = mysqli_fetch_assoc($result_pesquisaPet);
+    $array_pesquisaPet = mysqli_fetch_array($result_pesquisaPet);
     
-    print_r($array_pesquisaPet);
-
-    // header ( 'Location: resultadoPesquisa.php')
+    header ('Location: resultadoPesquisa.php');
     
     // $sqlFotosPet="SELECT * FROM fotosPet";
     // $result_sqlFotosPet=mysqli_query($conn,$sqlFotosPet);

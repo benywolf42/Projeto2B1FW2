@@ -121,11 +121,15 @@
           <!-- </div> -->
           <br><br>
       <?php
-        require('envioPesquisa.php');
-
-        $result_sqlPet=mysqli_query($conn, $pesquisaPet);
-        $array_sqlPet=mysqli_fetch_array($result_sqlPet);
-        $sqlFotosPet="SELECT * FROM fotosPet";
+        require('conexaoBanco.php');
+        
+        $pesquisaPet = "SELECT * from pet where especie = 'cao' and estado = 'SP' and cidade = 'Sao Paulo' and porte = 'G'";
+        // echo $pesquisaPet;
+    
+        $result_pesquisaPet = mysqli_query($conn, $pesquisaPet);
+        $array_pesquisaPet = mysqli_fetch_array($result_pesquisaPet);
+        
+        $sqlFotosPet="SELECT * FROM fotosPet where Pet_idPet = $array_pesquisaPet[0]";
         $result_sqlFotosPet=mysqli_query($conn,$sqlFotosPet);
         $array_sqlFotosPet=mysqli_fetch_array($result_sqlFotosPet);
         
@@ -135,18 +139,16 @@
         echo  "     <a href='#'><img class='card-img-top' src='.".$array_sqlFotosPet[1]."' alt=''></a>\n";
         echo  "       <div class='card-body'>\n";
         echo  "         <h4 class='card-title'>\n";
-        echo  "           <a href='/animal.php'>".$array_sqlPet[1]."</a>\n";
+        echo  "           <a href='/animal.php'>".$array_pesquisaPet[1]."</a>\n";
         echo  "         </h4>";
-        echo  "           <p class='card-text'>".$array_sqlPet[8]."</p>\n";
-        echo  "           <p class='card-text'>".$array_sqlPet[3]." - ".$array_sqlPet[4]."</p>\n";
-        echo  "           <p class='card-text'> Sexo: ".$array_sqlPet[5]." / Porte: ".$array_sqlPet[6]."</p>\n";
+        echo  "           <p class='card-text'>".$array_pesquisaPet[8]."</p>\n";
+        echo  "           <p class='card-text'>".$array_pesquisaPet[3]." - ".$array_pesquisaPet[4]."</p>\n";
+        echo  "           <p class='card-text'> Sexo: ".$array_pesquisaPet[5]." / Porte: ".$array_pesquisaPet[6]."</p>\n";
         echo  "   </div>\n";
         echo  " </div>\n";
         echo  "</div>\n";
 
-        $rowsqlPet = mysqli_fetch_assoc($result_sqlPet);
-
-        while ( $rowsqlFotosPet = mysqli_fetch_assoc($result_sqlFotosPet) ) {
+        while ( $rowsqlFotosPet = mysqli_fetch_assoc($result_sqlFotosPet) and $rowsqlPet = mysqli_fetch_assoc($result_pesquisaPet)) {
           echo    "<div class='col-lg-4 col-sm-6 portfolio-item'>";
           echo      "<div class='card h-100'>";
           echo        "<a href='#'><img class='card-img-top' src='.".$rowsqlFotosPet["linkFotoPerfil"]."' alt=''></a>";

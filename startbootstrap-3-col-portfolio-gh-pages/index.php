@@ -65,7 +65,7 @@
                         Filtro de pesquisa
                     </h4>
 
-                    <form name="pesquisaForm" id="pesquisaForm" method="post" action="envioPesquisa.php">
+                    <form name="pesquisaForm" id="pesquisaForm" method="post" action="resultadoPesquisa.php">
                       <select name="especie">
                             <option value="" selected="selected">Espécie:</option>
                             <option value="cao">Cão</option>
