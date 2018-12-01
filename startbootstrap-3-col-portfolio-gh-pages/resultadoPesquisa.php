@@ -77,11 +77,16 @@
                     if ($porte != "") { $pesquisaPet = $pesquisaPet. "and porte = '$porte' ";
                     }
                 }
+            }elseif ($cidade != "") { $pesquisaPet = $pesquisaPet. "and cidade = '$cidade' ";
+              if ($porte != "") { $pesquisaPet = $pesquisaPet. "and porte = '$porte' ";
+              }
+            }elseif ($porte != "") { $pesquisaPet = $pesquisaPet. "and porte = '$porte' ";
             }
         } elseif ($estado != "") { $pesquisaPet = $pesquisaPet. "estado = '$estado' ";
             if ($cidade != "") { $pesquisaPet = $pesquisaPet. "and cidade = '$cidade' ";
                 if ($porte != "") { $pesquisaPet = $pesquisaPet. "and porte = '$porte' ";
                 }
+            }elseif ($porte != "") { $pesquisaPet = $pesquisaPet. "and porte = '$porte' ";
             }
         } elseif ($cidade != "") { $pesquisaPet = $pesquisaPet. "cidade = '$cidade' ";
             if ($porte != "") { $pesquisaPet = $pesquisaPet. "and porte = '$porte' ";
@@ -89,50 +94,61 @@
         } elseif ($porte != "") { $pesquisaPet = $pesquisaPet. "porte = '$porte' ";
         }
 
+
         $result_pesquisaPet = mysqli_query($conn, $pesquisaPet);
-        $array_pesquisaPet = mysqli_fetch_array($result_pesquisaPet);
-        
-        $sqlFotosPet="SELECT * FROM fotosPet where Pet_idPet = $array_pesquisaPet[0]";
-        $result_sqlFotosPet=mysqli_query($conn,$sqlFotosPet);
-        $array_sqlFotosPet=mysqli_fetch_array($result_sqlFotosPet);
-        
-        echo  "<div class='row '>\n";
-        echo  " <div class='col-lg-4 col-sm-6 portfolio-item'>\n";
-        echo  "   <div class='card h-100'>";
-        echo  "     <a href='#'><img class='card-img-top' src='.".$array_sqlFotosPet[1]."' alt=''></a>\n";
-        echo  "       <div class='card-body'>\n";
-        echo  "         <h4 class='card-title'>\n";
-        echo  "           <a href='/animal.php?='>".$array_pesquisaPet[1]."</a>\n";
-        echo  "         </h4>";
-        echo  "           <p class='card-text'>".$array_pesquisaPet[8]."</p>\n";
-        echo  "           <p class='card-text'>".$array_pesquisaPet[3]." - ".$array_pesquisaPet[4]."</p>\n";
-        echo  "           <p class='card-text'> Sexo: ".$array_pesquisaPet[5]." / Porte: ".$array_pesquisaPet[6]."</p>\n";
-        echo  "   </div>\n";
-        echo  " </div>\n";
-        echo  "</div>\n";
-
-        while ( $rowsqlPet = mysqli_fetch_assoc($result_pesquisaPet)) {
-          
-          $sqlFotosPet="SELECT * FROM fotosPet where Pet_idPet = ".$rowsqlPet["idPet"];
-          $result_sqlFotosPet=mysqli_query($conn,$sqlFotosPet);
-          $array_sqlFotosPet=mysqli_fetch_array($result_sqlFotosPet);
-
-          echo    "<div class='col-lg-4 col-sm-6 portfolio-item'>";
-          echo      "<div class='card h-100'>";
-          echo        "<a href='#'><img class='card-img-top' src='.".$array_sqlFotosPet[1]."' alt=''></a>";
-          echo            "<div class='card-body'>";
-          echo              "<h4 class='card-title'>";
-          echo                 "<a href='/animal.php'>".$rowsqlPet["nome_provisorio"]."</a>";
-          echo              "</h4>";
-          echo          "<p class='card-text'>".$rowsqlPet["descricao"]."</p>";
-          echo          "<p class='card-text'>".$rowsqlPet["cidade"]." - ".$rowsqlPet["estado"]."</p>";
-          echo          "<p class='card-text'> Sexo: ".$rowsqlPet["sexo"]." / Porte: ".$rowsqlPet["porte"]."</p>";
-          echo        "</div>";
-          echo      "</div>";
-          echo    "</div>";
+        if (!$result_pesquisaPet) {
+          echo "<h3>Sua pesquisa não encontrou resultados.<br></h3>
+          <h4>Clique <a href='index.php'>aqui</a> para retornar a página principal.</h4>";
+          exit();
         }
+        $array_pesquisaPet = mysqli_fetch_array($result_pesquisaPet);
+
+          $sqlFotosPet="SELECT * FROM fotosPet where Pet_idPet = $array_pesquisaPet[0]";
+          $result_sqlFotosPet=mysqli_query($conn,$sqlFotosPet);
+          if (!$result_sqlFotosPet) {
+            echo "<h3>Sua pesquisa não encontrou resultados.<br></h3>
+            <h4>Clique <a href='index.php'>aqui</a> para retornar a página principal.</h4>";
+            exit();
+          }
+          $array_sqlFotosPet=mysqli_fetch_array($result_sqlFotosPet);
+          
+          echo  "<div class='row '>\n";
+          echo  " <div class='col-lg-4 col-sm-6 portfolio-item'>\n";
+          echo  "   <div class='card h-100'>";
+          echo  "     <a href='#'><img class='card-img-top' src='.".$array_sqlFotosPet[1]."' alt=''></a>\n";
+          echo  "       <div class='card-body'>\n";
+          echo  "         <h4 class='card-title'>\n";
+          echo  "           <a href='/animal.php?='>".$array_pesquisaPet[1]."</a>\n";
+          echo  "         </h4>";
+          echo  "           <p class='card-text'>".$array_pesquisaPet[8]."</p>\n";
+          echo  "           <p class='card-text'>".$array_pesquisaPet[3]." - ".$array_pesquisaPet[4]."</p>\n";
+          echo  "           <p class='card-text'> Sexo: ".$array_pesquisaPet[5]." / Porte: ".$array_pesquisaPet[6]."</p>\n";
+          echo  "   </div>\n";
+          echo  " </div>\n";
+          echo  "</div>\n";
+
+          while ( $rowsqlPet = mysqli_fetch_assoc($result_pesquisaPet)) {
+            
+            $sqlFotosPet="SELECT * FROM fotosPet where Pet_idPet = ".$rowsqlPet["idPet"];
+            $result_sqlFotosPet=mysqli_query($conn,$sqlFotosPet);
+            $array_sqlFotosPet=mysqli_fetch_array($result_sqlFotosPet);
+
+            echo    "<div class='col-lg-4 col-sm-6 portfolio-item'>";
+            echo      "<div class='card h-100'>";
+            echo        "<a href='#'><img class='card-img-top' src='.".$array_sqlFotosPet[1]."' alt=''></a>";
+            echo            "<div class='card-body'>";
+            echo              "<h4 class='card-title'>";
+            echo                 "<a href='/animal.php'>".$rowsqlPet["nome_provisorio"]."</a>";
+            echo              "</h4>";
+            echo          "<p class='card-text'>".$rowsqlPet["descricao"]."</p>";
+            echo          "<p class='card-text'>".$rowsqlPet["cidade"]." - ".$rowsqlPet["estado"]."</p>";
+            echo          "<p class='card-text'> Sexo: ".$rowsqlPet["sexo"]." / Porte: ".$rowsqlPet["porte"]."</p>";
+            echo        "</div>";
+            echo      "</div>";
+            echo    "</div>";
 
         echo   "</div>";
+      } 
       ?>
       <!-- /.row -->
 

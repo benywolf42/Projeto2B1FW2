@@ -55,18 +55,29 @@
 
     <?php 
 
-      $nome           = $_GET["name"];
-      $fotoPerfil     = $_GET["fotoPerfil"];
-      $descricao      = $_GET["descricao"];
-      $cidade         = $_GET["cidade"];
-      $UF             = $_GET["UF"];
-      $sexo           = $_GET["sexo"];
-      $porte          = $_GET["porte"];
-      $outrasInfo     = $_GET["outrasInfo"];
-      $foto2          = $_GET["foto2"];
-      $foto3          = $_GET["foto3"];
-      $foto4          = $_GET["foto4"];
-      $foto5          = $_GET["foto5"];
+      require('conexaoBanco.php');
+
+      $id = $_GET['id'];
+
+      $query_animal = "SELECT * FROM PET WHERE idPET = ". $id;
+      $query_fotos = "SELECT * FROM FOTOSPET WHERE pet_idpet = ". $id;
+      $result_query_animal = mysqli_query($conn, $query_animal);
+      $array_query_animal = mysqli_fetch_array($result_query_animal);
+      $result_query_fotos = mysqli_query($conn, $query_fotos);
+      $array_query_fotos = mysqli_fetch_array($result_query_fotos);
+
+      $nome           = $array_query_animal[1];
+      $fotoPerfil     = $array_query_fotos[1];
+      $descricao      = $array_query_animal[8];
+      $cidade         = $array_query_animal[3];
+      $UF             = $array_query_animal[4];
+      $sexo           = $array_query_animal[5];
+      $porte          = $array_query_animal[6];
+      $outrasInfo     = $array_query_animal[9];
+      $foto2          = $array_query_fotos[2];
+      $foto3          = $array_query_fotos[3];
+      $foto4          = $array_query_fotos[4];
+      $foto5          = $array_query_fotos[5];
 
         echo '<h1 class="my-4">'. $nome.'</h1>'; 
 
