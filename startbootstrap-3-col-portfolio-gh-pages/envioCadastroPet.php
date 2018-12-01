@@ -1,4 +1,4 @@
 <?php
-//echo "ok";
+echo "ok";
 header ( 'Location: ' . $dominio . 'cadastrarPet.php?sucesso=1')
 ?>

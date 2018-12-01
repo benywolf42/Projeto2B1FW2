@@ -158,16 +158,19 @@
                     <option value="TO">TO</option>
                 </select><br>
                 Cidade*: <br><input type="text" style="width:290px;" id="cidadePet" name="cidadePet"><br>
-<!--mascara-->  Data do Cadastro*: <br><input type="text" style="width:290px;" id="dataCadastroPet" name="dataCadastroPet"><br>
-                Descrição*:<br><textarea name="text" rows="4" cols="30" wrap="soft"> </textarea><br>
-                <!-- <br><input type="text" id="desc" name="desc"><br>-->
+                Data do Cadastro*: <br><input type="text" style="width:290px;" id="dataCadastroPet" name="dataCadastroPet"><br>
+                Descrição*:<br><textarea id="desc" name="desc" rows="4" cols="30" wrap="soft"> </textarea><br>
                 Informações Adicionais: <br><input type="text" style="width:290px;" id="extraInfo" name="extraInfo"><br><br>
-
-
           <input type="button" name="Enviar" id="Enviar" value="Enviar">
           <div id="mensagem"></div>
         </form>
             
+        <br><br>
+
+        <form action="upload.php" method="POST" enctype="multipart/form-data">
+            <input type="file" name="file"><br><br>
+            <button type="submit" name="submit">Carregar imagem</button>
+        </form>
       
       </div>
           
