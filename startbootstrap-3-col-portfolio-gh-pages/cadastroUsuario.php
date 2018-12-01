@@ -64,7 +64,7 @@
              <span>
           <?php  
             if (isset ( $_GET ['sucesso'] )) {
-                  echo "<font face=Verdana color=red size=2>";
+                  echo "<font face=Verdana color=green size=2>";
                   echo "<b>Cadastro de usuário realizado com sucesso!</b>";
                   echo "</font>";
             }
@@ -174,7 +174,7 @@
             }
           </script>
 
-        <form name="cadastroForm" id="cadastroForm" method="post" action="envioCadastro.php">
+        <form name="cadastroForm" id="cadastroForm" method="post" action="envioCadastroUsuario.php">
             Nome completo*:<br> <input type="text" id="nome" name="nome"><br>
             E-mail:* <br><input type="text" id="email" name="email"><br>
             Nome de Usuário*: <br><input type="text" id="nomeUsuario" name="nomeUsuario"><br>

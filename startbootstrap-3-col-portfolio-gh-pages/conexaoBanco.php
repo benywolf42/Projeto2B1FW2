@@ -1,8 +1,8 @@
 <?php
     $servername = "localhost";
-    $database = "mydb";
+    $database = "PETADOPT";
     $username = "root";
-    $password = "";
+    $password = "senha";
     // Create connection
     $conn = mysqli_connect($servername, $username, $password, $database);
     // Check connection

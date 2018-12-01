@@ -18,12 +18,16 @@ insert into Endereco_Usuario values
 insert into Pet values(null, 'Rex', 'cão', 'São Paulo', 'SP', 'M', 'G', '2018-11-24', 'Rex é um cão nada amigável. Ótimo para fazer guarda à noite.', 'Vacinado e castrado.', 1);
 insert into Pet values(null, 'Kitty', 'gato', 'São Paulo', 'SP', 'F', 'P', '2018-11-08', 'Kitty é uma gata canceriana, super amorosa, mas de personalidade forte.', 'Vacinada e castrada.', 2);
 
+insert into Pet values(null, 'Maximiliano', 'cão', 'Osasco', 'SP', 'M', 'G', '2018-12-01', 'Maximiliano é um cão treinado para o combate. Mas se derrete todo com um carinho de baixo do pescoço', 'Vacinada e castrada.', 4);
+insert into Pet values(null, 'Kataoquei', 'gato', 'Pirituba', 'SP', 'F', 'M', '2018-12-02', 'Kataoquei é uma bichana bem sacana. Brinca o dia inteiro e só dorme com dramin.', 'Vacinada e castrada.', 3);
 -- CRIANDO OS LINKS DE FOTOS
 
 insert into fotosPet (linkFotoPerfil, Pet_idPet)values('/Imagens/labrador.jpg', 1);
 insert into fotosPet (linkFotoPerfil, Pet_idPet)values('/Imagens/gatinho.jpg', 2);
+insert into fotosPet (linkFotoPerfil, Pet_idPet)values('/Imagens/felipeMelo.jpg', 3);
+insert into fotosPet (linkFotoPerfil, Pet_idPet)values('/Imagens/gatenhaa.png', 4);
 
-INSERT INTO Pet values(null, 'Rex', 'cão', 'São Paulo', 'SP', 'M', 'G', '2018-11-24', 'Rex é um cão nada amigável. Ótimo para fazer guarda à noite.', 'Vacinado e castrado.', '/Animais/1.html', 1);
+/*INSERT INTO Pet values(null, 'Rex', 'cão', 'São Paulo', 'SP', 'M', 'G', '2018-11-24', 'Rex é um cão nada amigável. Ótimo para fazer guarda à noite.', 'Vacinado e castrado.', '/Animais/1.html', 1);
 
 select * from pet;
 
@@ -36,4 +40,4 @@ estado = '$estado' and
 porte = '$porte';
 
 
-select * from Pet where especie = 'cão' and estado = 'SP' and cidade = 'São Paulo' and porte = 'G';
+select * from Pet where especie = 'cão' and estado = 'SP' and cidade = 'São Paulo' and porte = 'G';*/

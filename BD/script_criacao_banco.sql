@@ -5,19 +5,19 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema PETADOPT
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema PETADOPT
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `PETADOPT` DEFAULT CHARACTER SET utf8 ;
+USE `PETADOPT` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`Usuario`
+-- Table `PETADOPT`.`Usuario`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Usuario` (
+CREATE TABLE IF NOT EXISTS `PETADOPT`.`Usuario` (
   `idUsuario` INT NOT NULL AUTO_INCREMENT,
   `nome_completo` VARCHAR(75) NOT NULL,
   `login` VARCHAR(30) NOT NULL,
@@ -30,9 +30,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Pet`
+-- Table `PETADOPT`.`Pet`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Pet` (
+CREATE TABLE IF NOT EXISTS `PETADOPT`.`Pet` (
   `idPet` INT NOT NULL AUTO_INCREMENT,
   `nome_provisorio` VARCHAR(30) NOT NULL,
   `especie` ENUM('cão', 'gato') NOT NULL,
@@ -48,16 +48,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Pet` (
   INDEX `fk_Pet_Usuario1_idx` (`Usuario_idUsuario` ASC),
   CONSTRAINT `fk_Pet_Usuario1`
     FOREIGN KEY (`Usuario_idUsuario`)
-    REFERENCES `mydb`.`Usuario` (`idUsuario`)
+    REFERENCES `PETADOPT`.`Usuario` (`idUsuario`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Endereco_Usuario`
+-- Table `PETADOPT`.`Endereco_Usuario`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Endereco_Usuario` (
+CREATE TABLE IF NOT EXISTS `PETADOPT`.`Endereco_Usuario` (
   `idEndereco_Usuario` INT NOT NULL AUTO_INCREMENT,
   `UF` CHAR(2) NOT NULL,
   `cidade` VARCHAR(45) NOT NULL,
@@ -71,16 +71,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Endereco_Usuario` (
   INDEX `fk_Endereco_Usuario_Usuario1_idx` (`Usuario_idUsuario` ASC),
   CONSTRAINT `fk_Endereco_Usuario_Usuario1`
     FOREIGN KEY (`Usuario_idUsuario`)
-    REFERENCES `mydb`.`Usuario` (`idUsuario`)
+    REFERENCES `PETADOPT`.`Usuario` (`idUsuario`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`fotosPet`
+-- Table `PETADOPT`.`fotosPet`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`fotosPet` (
+CREATE TABLE IF NOT EXISTS `PETADOPT`.`fotosPet` (
   `idfotosPet` INT NOT NULL AUTO_INCREMENT,
   `linkFotoPerfil` VARCHAR(60) NOT NULL,
   `linkFoto1` VARCHAR(60) NULL,
@@ -94,7 +94,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`fotosPet` (
   INDEX `fk_fotosPet_Pet1_idx` (`Pet_idPet` ASC),
   CONSTRAINT `fk_fotosPet_Pet1`
     FOREIGN KEY (`Pet_idPet`)
-    REFERENCES `mydb`.`Pet` (`idPet`)
+    REFERENCES `PETADOPT`.`Pet` (`idPet`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
