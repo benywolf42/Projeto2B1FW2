@@ -121,10 +121,9 @@
           <!-- </div> -->
           <br><br>
       <?php
-        require_once('conexaoBanco.php');
+        require('envioPesquisa.php');
 
-        $sqlPet="SELECT * FROM Pet";
-        $result_sqlPet=mysqli_query($conn, $sqlPet);
+        $result_sqlPet=mysqli_query($conn, $pesquisaPet);
         $array_sqlPet=mysqli_fetch_array($result_sqlPet);
         $sqlFotosPet="SELECT * FROM fotosPet";
         $result_sqlFotosPet=mysqli_query($conn,$sqlFotosPet);
@@ -145,7 +144,9 @@
         echo  " </div>\n";
         echo  "</div>\n";
 
-        while ( $rowsqlFotosPet = mysqli_fetch_assoc($result_sqlFotosPet) and $rowsqlPet = mysqli_fetch_assoc($result_sqlPet) ) {
+        $rowsqlPet = mysqli_fetch_assoc($result_sqlPet);
+
+        while ( $rowsqlFotosPet = mysqli_fetch_assoc($result_sqlFotosPet) ) {
           echo    "<div class='col-lg-4 col-sm-6 portfolio-item'>";
           echo      "<div class='card h-100'>";
           echo        "<a href='#'><img class='card-img-top' src='.".$rowsqlFotosPet["linkFotoPerfil"]."' alt=''></a>";
