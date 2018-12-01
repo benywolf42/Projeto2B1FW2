@@ -74,7 +74,7 @@
             
 
 
-       <form enctype="multipart/form-data" method="POST" action="upload.php">
+       <form enctype="multipart/form-data" method="POST" action="envioFotosPet.php">
             <font size=4 color=DarkBlue><b>Escolha cinco fotos do seu pet:</b></font><br><br>
 			<input type="file" name="arquivo[]" multiple="multiple" /><br><br>
 			<input name="enviar" type="submit" value="Enviar fotos">
