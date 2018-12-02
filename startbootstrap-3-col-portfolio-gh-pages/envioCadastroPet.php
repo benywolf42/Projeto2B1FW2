@@ -6,8 +6,18 @@ if (!$_SESSION["autenticacao"]) {
 }
 
 $login =  $_SESSION["login"];
-
 require_once('conexaoBanco.php');
+/*
+echo $login;
+echo $_POST['nomePet'];
+echo $_POST['especie'];
+echo $_POST['sexo'];
+echo $_POST['porte'];
+echo $_POST['UF'];
+echo $_POST['cidadePet'];
+echo $_POST['dataCadastroPet'];
+echo $_POST['extraInfo'];
+htmlspecialchars($_POST['desc']);*/
 
 $nomePet            = $_POST['nomePet'];
 $especie            = $_POST['especie'];
@@ -20,11 +30,11 @@ $extraInfo          = $_POST['extraInfo'];
 $desc               = htmlspecialchars($_POST['desc']);
 
 
-$query_apoio_usr = mysqli_query($conn, "SELECT idUsuario FROM Usuario WHERE login_usr = '$login'");
+$query_apoio_usr = mysqli_query($conn, "SELECT idUsuario FROM Usuario WHERE login = '$login'");
 $apoio_usr = mysqli_fetch_array($query_apoio_usr);
 
 
-$insertPet = "INSERT INTO Pet VALUES (NULL, '$nomePet', '$especie', '$cidade', '$UF', '$sexo', '$porte' , '$dataCadastroPet' , '$desc' , '$extraInfo' , '$apoio_usr[0]')";
+$insertPet = "INSERT INTO Pet VALUES (NULL, '$nomePet', '$especie', '$cidadePet', '$UF', '$sexo', '$porte' , '$dataCadastroPet' , '$desc' , '$extraInfo' , '$apoio_usr[0]')";
 mysqli_query($conn, $insertPet);
 
 

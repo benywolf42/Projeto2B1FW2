@@ -22,6 +22,7 @@ if(!is_dir($diretorio)){
 	}
 }
 
+$destino = "/".$destino;
 
 $login =  $_SESSION["login"];
 
@@ -30,9 +31,9 @@ require_once('conexaoBanco.php');
 /*$find_id_pet = mysqli_query($conn, "SELECT Pet_idPet FROM Pet WHERE nome_provisorio = '$????????'");
 $id_pet = mysqli_fetch_array($find_id_pet);*/
 
-/*$insertFotoPet = "INSERT INTO fotosPet (idfotosPet, linkFotoPerfil, Pet_idPet) VALUES (NULL, '$destino', 3)";
-mysqli_query($conn, $insertFotoPet);*/
+$insertFotoPet = "INSERT INTO fotosPet (idfotosPet, linkFotoPerfil, Pet_idPet) VALUES (NULL, '$destino', 7)";
+mysqli_query($conn, $insertFotoPet);
 
-
+echo $destino;
 header ( 'Location: ' . $dominio . 'fotosPet.php?sucesso=1')
 ?>
