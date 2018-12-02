@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,9 +38,14 @@
                 <span class="sr-only">(current)</span>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="login.php">Login</a>
-            </li>
+            <?php 
+              if (!$_SESSION) { 
+                echo '<li class="nav-item"> <a class="nav-link" href="login.php">Login</a></li>'; 
+              } else{
+                  echo '<li class="nav-item"> <a class="nav-link" href="panel.php">Painel</a></li>';
+                  echo '<li class="nav-item"> <a class="nav-link" href="logout.php">Logout</a></li>';
+              }
+            ?>
             <li class="nav-item">
               <a class="nav-link" href="#">Sobre</a>
             </li>

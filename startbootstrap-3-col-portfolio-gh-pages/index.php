@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,9 +38,14 @@
                 <span class="sr-only">(current)</span>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="login.php">Login</a>
-            </li>
+            <?php 
+              if (!$_SESSION) { 
+                echo '<li class="nav-item"> <a class="nav-link" href="login.php">Login</a></li>'; 
+              } else{
+                  echo '<li class="nav-item"> <a class="nav-link" href="panel.php">Painel</a></li>';
+                  echo '<li class="nav-item"> <a class="nav-link" href="logout.php">Logout</a></li>';
+              }
+            ?>
             <li class="nav-item">
               <a class="nav-link" href="sobre.html">Sobre</a>
             </li>
@@ -103,7 +112,7 @@
                             </select>
                               <select name="cidade">
                                 <option value="" selected="selected">Cidade:</option>
-                                <option value="Sao Paulo">São Paulo</option>
+                                <option value="São Paulo">São Paulo</option>
                                 <option value="Rio de Janeiro">Rio de Janeiro</option>
                                 <option value="Salvador">Salvador</option>
                                 <option value="Curitiba">Curitiba</option>

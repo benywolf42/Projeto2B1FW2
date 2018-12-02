@@ -43,12 +43,14 @@
             <li class="nav-item">
               <a class="nav-link" href="index.php">Home</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="login.php">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="logout.php">Logout</a>
-            </li>
+            <?php 
+              if (!$_SESSION) { 
+                echo '<li class="nav-item"> <a class="nav-link" href="login.php">Login</a></li>'; 
+              } else{
+                  echo '<li class="nav-item"> <a class="nav-link" href="panel.php">Painel</a></li>';
+                  echo '<li class="nav-item"> <a class="nav-link" href="logout.php">Logout</a></li>';
+              }
+            ?>
             <li class="nav-item">
               <a class="nav-link" href="sobre.html">Sobre</a>
             </li>
@@ -76,25 +78,28 @@
             <div class="card-body">
 
             <span>
-          <?php  
             
-                  echo "<font size=6>";
-                  echo "Bem vindo ".$login."! "; echo "<font size=6>  Deseja cadastrar um novo Pet? </font><br>"; 
-                  echo "</font>";
-            ?>
-            </span>
-       
-        <form name="redirecionaCadastro" id="redirecionaCadastro" method="post" action="cadastrarPet.php"> 
-          <input name="encaminhaCadPet" type="submit" value="Clique aqui!">
-        </form>
-            
+        <font size=4>Bem vindo, <?php  echo $login ?>! Clique <a href = "cadastrarPet.php">aqui</a> para cadastrar um novo pet.</font><br><br>
+                  
+
+        <?php  
+          if (isset ( $_GET ['sucesso=1'] )) {
+                echo "<font face=Verdana color=green size=2>";
+                echo "<b>Pet removido com sucesso!</b>";
+                echo "</font>";
+          } elseif (isset ( $_GET ['sucesso=2'] )) {
+            echo "<font face=Verdana color=green size=2>";
+            echo "<b>Pet incluído com sucesso!</b>";
+            echo "</font>";
+          }
+        ?>
+
         <?php
         require_once('conexaoBanco.php');
         $sqlUsuario = "SELECT idUsuario FROM Usuario WHERE login = '$login'";
         $result_sqlUsuario = mysqli_query($conn, $sqlUsuario);
         $array_sqlUsuario = mysqli_fetch_array($result_sqlUsuario);
         $sqlPet="SELECT * FROM Pet where Usuario_idUsuario = '$array_sqlUsuario[0]'";
-        echo $sqlPet;
         $result_sqlPet=mysqli_query($conn, $sqlPet);
         $array_sqlPet=mysqli_fetch_array($result_sqlPet);
         $sqlFotosPet="SELECT * FROM fotosPet";
@@ -112,6 +117,7 @@
         echo  "           <p class='card-text'>".$array_sqlPet[8]."</p>\n";
         echo  "           <p class='card-text'>".$array_sqlPet[3]." - ".$array_sqlPet[4]."</p>\n";
         echo  "           <p class='card-text'> Sexo: ".$array_sqlPet[5]." / Porte: ".$array_sqlPet[6]."</p>\n";
+        echo  "           <h6 class='card-text'><a href='removerAnimal.php?id=".$array_sqlPet[0]."'> Remover Pet</a></h6>";
         echo  "   </div>\n";
         echo  " </div>\n";
         echo  "</div>\n";
@@ -127,6 +133,7 @@
           echo          "<p class='card-text'>".$rowsqlPet["descricao"]."</p>";
           echo          "<p class='card-text'>".$rowsqlPet["cidade"]." - ".$rowsqlPet["estado"]."</p>";
           echo          "<p class='card-text'> Sexo: ".$rowsqlPet["sexo"]." / Porte: ".$rowsqlPet["porte"]."</p>";
+          echo          "<h6 class='card-text'><a href='removerAnimal.php?id=".$rowsqlPet["idPet"]."'> Remover Pet</a></h6>";
           echo        "</div>";
           echo      "</div>";
           echo    "</div>";

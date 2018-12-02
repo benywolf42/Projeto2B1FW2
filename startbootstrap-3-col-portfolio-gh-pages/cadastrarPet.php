@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,9 +36,14 @@
             <li class="nav-item">
               <a class="nav-link" href="index.php">Home</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="login.php">Login</a>
-            </li>
+            <?php 
+              if (!$_SESSION) { 
+                echo '<li class="nav-item"> <a class="nav-link" href="login.php">Login</a></li>'; 
+              } else{
+                  echo '<li class="nav-item"> <a class="nav-link" href="panel.php">Painel</a></li>';
+                  echo '<li class="nav-item"> <a class="nav-link" href="logout.php">Logout</a></li>';
+              }
+            ?>
             <li class="nav-item">
               <a class="nav-link" href="sobre.html">Sobre</a>
             </li>
@@ -114,8 +123,8 @@
                 Nome do Pet*:<br> <input type="text" style="width:290px;" id="nomePet" name="nomePet"><br>
                 Especie:*
                 <select name="especie">
-                    <option value="Cao">Cão</option>
-                    <option value="Gato">Gato</option>
+                    <option value="cao">Cão</option>
+                    <option value="gato">Gato</option>
                 </select><br>
                 Sexo*:
                 <select name="sexo">
