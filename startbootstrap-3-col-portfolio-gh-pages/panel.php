@@ -47,6 +47,9 @@
               <a class="nav-link" href="login.php">Login</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="logout.php">Logout</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="sobre.html">Sobre</a>
             </li>
             <li class="nav-item">
@@ -85,7 +88,52 @@
           <input name="encaminhaCadPet" type="submit" value="Clique aqui!">
         </form>
             
-      
+        <?php
+        require_once('conexaoBanco.php');
+        $sqlUsuario = "SELECT idUsuario FROM Usuario WHERE login = '$login'";
+        $result_sqlUsuario = mysqli_query($conn, $sqlUsuario);
+        $array_sqlUsuario = mysqli_fetch_array($result_sqlUsuario);
+        $sqlPet="SELECT * FROM Pet where Usuario_idUsuario = '$array_sqlUsuario[0]'";
+        echo $sqlPet;
+        $result_sqlPet=mysqli_query($conn, $sqlPet);
+        $array_sqlPet=mysqli_fetch_array($result_sqlPet);
+        $sqlFotosPet="SELECT * FROM fotosPet";
+        $result_sqlFotosPet=mysqli_query($conn,$sqlFotosPet);
+        $array_sqlFotosPet=mysqli_fetch_array($result_sqlFotosPet);
+        
+        echo  "<div class='row '>\n";
+        echo  " <div class='col-lg-4 col-sm-6 portfolio-item'>\n";
+        echo  "   <div class='card h-100'>";
+        echo  "     <a href='#'><img class='card-img-top' src='.".$array_sqlFotosPet[1]."' alt=''></a>\n";
+        echo  "       <div class='card-body'>\n";
+        echo  "         <h4 class='card-title'>\n";
+        echo  "           <a href='animal.php?id=".$array_sqlPet[0]."'>".$array_sqlPet[1]."</a>\n";
+        echo  "         </h4>";
+        echo  "           <p class='card-text'>".$array_sqlPet[8]."</p>\n";
+        echo  "           <p class='card-text'>".$array_sqlPet[3]." - ".$array_sqlPet[4]."</p>\n";
+        echo  "           <p class='card-text'> Sexo: ".$array_sqlPet[5]." / Porte: ".$array_sqlPet[6]."</p>\n";
+        echo  "   </div>\n";
+        echo  " </div>\n";
+        echo  "</div>\n";
+
+        while ( $rowsqlFotosPet = mysqli_fetch_assoc($result_sqlFotosPet) and $rowsqlPet = mysqli_fetch_assoc($result_sqlPet) ) {
+          echo    "<div class='col-lg-4 col-sm-6 portfolio-item'>";
+          echo      "<div class='card h-100'>";
+          echo        "<a href='#'><img class='card-img-top' src='.".$rowsqlFotosPet["linkFotoPerfil"]."' alt=''></a>";
+          echo            "<div class='card-body'>";
+          echo              "<h4 class='card-title'>";
+          echo                 "<a href='animal.php?id=".$rowsqlPet["idPet"]."'>".$rowsqlPet["nome_provisorio"]."</a>";
+          echo              "</h4>";
+          echo          "<p class='card-text'>".$rowsqlPet["descricao"]."</p>";
+          echo          "<p class='card-text'>".$rowsqlPet["cidade"]." - ".$rowsqlPet["estado"]."</p>";
+          echo          "<p class='card-text'> Sexo: ".$rowsqlPet["sexo"]." / Porte: ".$rowsqlPet["porte"]."</p>";
+          echo        "</div>";
+          echo      "</div>";
+          echo    "</div>";
+        }
+
+        echo   "</div>";
+      ?>
       </div>
           
     </div>
