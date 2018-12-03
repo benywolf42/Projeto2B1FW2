@@ -142,7 +142,7 @@
         echo  "<div class='row '>\n";
         echo  " <div class='col-lg-4 col-sm-6 portfolio-item'>\n";
         echo  "   <div class='card h-100'>";
-        echo  "     <a href='#'><img class='card-img-top' src='.".$array_sqlFotosPet[1]."' alt=''></a>\n";
+        echo  "     <a href='animal.php?id=".$array_sqlPet[0]."'><img class='card-img-top' src='.".$array_sqlFotosPet[1]."' alt=''></a>\n";
         echo  "       <div class='card-body'>\n";
         echo  "         <h4 class='card-title'>\n";
         echo  "           <a href='animal.php?id=".$array_sqlPet[0]."'>".$array_sqlPet[1]."</a>\n";
@@ -157,7 +157,7 @@
         while ( $rowsqlFotosPet = mysqli_fetch_assoc($result_sqlFotosPet) and $rowsqlPet = mysqli_fetch_assoc($result_sqlPet) ) {
           echo    "<div class='col-lg-4 col-sm-6 portfolio-item'>";
           echo      "<div class='card h-100'>";
-          echo        "<a href='#'><img class='card-img-top' src='.".$rowsqlFotosPet["linkFotoPerfil"]."' alt=''></a>";
+          echo        "<a href='animal.php?id=".$rowsqlPet["idPet"]."'><img class='card-img-top' src='.".$rowsqlFotosPet["linkFotoPerfil"]."' alt=''></a>";
           echo            "<div class='card-body'>";
           echo              "<h4 class='card-title'>";
           echo                 "<a href='animal.php?id=".$rowsqlPet["idPet"]."'>".$rowsqlPet["nome_provisorio"]."</a>";

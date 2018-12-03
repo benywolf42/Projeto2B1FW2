@@ -116,23 +116,23 @@
 
         echo '   <div class="col-md-3 col-sm-6 mb-4">';
         echo '    <a href="#">';
-        echo '      <img class="img-fluid" src="'.$foto2.'" alt="">';
+        echo '      <img class="img-fluid" src=".'.$foto2.'" alt="">';
         echo '    </a>';
         echo '  </div>';
 
         echo '  <div class="col-md-3 col-sm-6 mb-4">';
         echo '    <a href="#">';
-        echo '      <img class="img-fluid" src="'.$foto3.'" alt="">';
+        echo '      <img class="img-fluid" src=".'.$foto3.'" alt="">';
         echo '    </a>';
         echo '  </div>';
 
         echo '  <div class="col-md-3 col-sm-6 mb-4">';
         echo '    <a href="#">';
-        echo '      <img class="img-fluid" src="'.$foto3.'" alt="">';
+        echo '      <img class="img-fluid" src=".'.$foto4.'" alt="">';
         echo '    </a>';
         echo '  </div>';
 
-        echo '  <div class="col-md-3 col-sm-6 mb-4"><a href="#"><img class="img-fluid" src="'.$foto4.'" alt=""></a></div>';
+        echo '  <div class="col-md-3 col-sm-6 mb-4"><a href="#"><img class="img-fluid" src="'.$foto5.'" alt=""></a></div>';
         echo '</div>';
         echo '</div>';
 
