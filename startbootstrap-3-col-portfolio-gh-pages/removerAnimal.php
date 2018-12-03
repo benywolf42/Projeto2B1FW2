@@ -6,9 +6,15 @@
     $id          = $_GET['id'];
 
     $removerFotosAnimal = "DELETE FROM fotosPet WHERE Pet_idPet = '$id'";
-    mysqli_query($conn, $removerFotosAnimal);
+    $result_removerFotosAnimal = mysqli_query($conn, $removerFotosAnimal);
+    if (!$result_removerFotosAnimal){
+        die("Algo de errado não está certo: " . mysqli_connect_error($conn));
+    }
     $removerAnimal = "DELETE FROM Pet WHERE idPet = '$id'";
-    mysqli_query($conn, $removerAnimal);
+    $result_removerAnimal = mysqli_query($conn, $removerAnimal);
+    if (!$result_removerAnimal){
+        die("Algo de errado não está certo: " . mysqli_connect_error($conn));
+    }
     
     header ('Location: panel.php?sucesso=1')
 

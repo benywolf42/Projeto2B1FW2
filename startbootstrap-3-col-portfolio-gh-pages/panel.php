@@ -83,14 +83,16 @@
                   
 
         <?php  
-          if (isset ( $_GET ['sucesso=1'] )) {
+          if (isset ( $_GET ['sucesso'] )) {
+            if ($_GET ['sucesso'] == 1) {
                 echo "<font face=Verdana color=green size=2>";
                 echo "<b>Pet removido com sucesso!</b>";
                 echo "</font>";
-          } elseif (isset ( $_GET ['sucesso=2'] )) {
+            } elseif ($_GET ['sucesso'] == 2 ) {
             echo "<font face=Verdana color=green size=2>";
             echo "<b>Pet incluído com sucesso!</b>";
             echo "</font>";
+            }
           }
         ?>
 
@@ -98,18 +100,29 @@
         require_once('conexaoBanco.php');
         $sqlUsuario = "SELECT idUsuario FROM Usuario WHERE login = '$login'";
         $result_sqlUsuario = mysqli_query($conn, $sqlUsuario);
+        if (!$result_sqlUsuario) {
+          die("Não há nada para ver aqui.");
+        } 
         $array_sqlUsuario = mysqli_fetch_array($result_sqlUsuario);
         $sqlPet="SELECT * FROM Pet where Usuario_idUsuario = '$array_sqlUsuario[0]'";
         $result_sqlPet=mysqli_query($conn, $sqlPet);
+        if (!$result_sqlPet) {
+          die("Não há nada para ver aqui.");
+        } 
         $array_sqlPet=mysqli_fetch_array($result_sqlPet);
-        $sqlFotosPet="SELECT * FROM fotosPet";
+        $sqlFotosPet="SELECT fotospet.linkFotoPerfil, fotospet.linkFoto1, fotospet.linkFoto2, fotospet.linkFoto3, fotospet.linkFoto4 from fotospet INNER JOIN 
+        Pet ON fotospet.Pet_idPet = pet.idPet AND pet.Usuario_idUsuario = $array_sqlUsuario[0]";
+
         $result_sqlFotosPet=mysqli_query($conn,$sqlFotosPet);
+        if (!$result_sqlFotosPet) {
+          die("Não há nada para ver aqui.");
+        } 
         $array_sqlFotosPet=mysqli_fetch_array($result_sqlFotosPet);
         
         echo  "<div class='row '>\n";
         echo  " <div class='col-lg-4 col-sm-6 portfolio-item'>\n";
         echo  "   <div class='card h-100'>";
-        echo  "     <a href='#'><img class='card-img-top' src='.".$array_sqlFotosPet[1]."' alt=''></a>\n";
+        echo  "     <a href='animal.php?id=".$array_sqlPet[0]."'><img class='card-img-top' src='.".$array_sqlFotosPet[0]."' alt=''></a>\n";
         echo  "       <div class='card-body'>\n";
         echo  "         <h4 class='card-title'>\n";
         echo  "           <a href='animal.php?id=".$array_sqlPet[0]."'>".$array_sqlPet[1]."</a>\n";
@@ -125,7 +138,7 @@
         while ( $rowsqlFotosPet = mysqli_fetch_assoc($result_sqlFotosPet) and $rowsqlPet = mysqli_fetch_assoc($result_sqlPet) ) {
           echo    "<div class='col-lg-4 col-sm-6 portfolio-item'>";
           echo      "<div class='card h-100'>";
-          echo        "<a href='#'><img class='card-img-top' src='.".$rowsqlFotosPet["linkFotoPerfil"]."' alt=''></a>";
+          echo        "<a href='animal.php?id=".$rowsqlPet["idPet"]."'><img class='card-img-top' src='.".$rowsqlFotosPet["linkFotoPerfil"]."' alt=''></a>";
           echo            "<div class='card-body'>";
           echo              "<h4 class='card-title'>";
           echo                 "<a href='animal.php?id=".$rowsqlPet["idPet"]."'>".$rowsqlPet["nome_provisorio"]."</a>";
@@ -137,9 +150,9 @@
           echo        "</div>";
           echo      "</div>";
           echo    "</div>";
-        }
+          }
 
-        echo   "</div>";
+          echo   "</div>";
       ?>
       </div>
           
